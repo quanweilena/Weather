@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Local weather website</title>
+	<meta charset="utf-8" name="author" content="Dan Zhou">
+</head>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<!--font -->
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link href="main.css" rel="stylesheet" type="text/css" >
+
+<body class="text-center info" ng-app="myApp" ng-controller="myCtrl" ng-style="weatherBackground" background="img/Default.jpg">
+
+<h1>Local weather project</h1>
+<br>
+<p>OpenWeatherMap AppId:</p>
+
+<div class="row">
+    <div class="col-lg-4 col-centered">
+       	<div class="input-group">
+       		<input type="text" class="form-control" ng-model= "AppId" type="text" ng-init="AppId='a63657f6ab79230f3ceeed08a4c29cdf'">
+       		<span class="input-group-btn">
+        	<button class="btn btn-default" type="button" ng-click="sendAppId()" >Send</button>
+        	</span>
+       </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+<br>
+
+<ul class="list-group col-lg-3 col-centered" ng-show="value1">
+  	<li class="list-group-item list-group-item-success">City: {{cityname | uppercase}}</li>
+  	<a href="" class="list-group-item list-group-item-info" ng-init="uchange=true" ng-show="uchange" ng-click="uchange=!uchange" >Temperature: {{cTemp}}</a>
+  	<a href="" class="list-group-item list-group-item-info" ng-show="!uchange" ng-click="uchange=!uchange" >Temperature: {{fTemp}}</a>
+  	<li class="list-group-item list-group-item-warning" >Weather: {{description | uppercase}}<img ng-src="{{icon}}"></li>
+  	<li class="list-group-item list-group-item-danger" >Wind Speed: {{speed}}</li>
+  	<li class="list-group-item list-group-item-success" >Humidity: {{humidity}}</li>
+</ul>
+
+
+<ul class="list-group col-lg-3 col-centered" ng-show="value2">
+	<li class="list-group-item list-group-item-danger"  >Error: {{Invalid}}</li>
+</ul>
+
+<!-- footer -->
+<footer class="footer">
+  	<div class="container">
+    	<p class="text-muted">Designed by Dan Zhou (quanweilena@gmail.com)</p>
+  	</div>
+</footer>
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="controller/controller.js"></script>
+
+</html>
+
